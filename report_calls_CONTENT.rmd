@@ -5,13 +5,31 @@ source("variables_and_packages.R")
 ```
 
 
+```{r}
+# Data retrieval via API
+api_url   = redcap_api_url
+api_token = api_token_content
+```
+
+
+```{r}
+# Read Data
+rcon <- redcapConnection(api_url, api_token)
+#export records
+#test <- exportRecords(rcon, factors = TRUE, fields = c("name"), forms = NULL, records = NULL, labels = TRUE, dates = TRUE, survey = FALSE, dag = TRUE, checkboxLabels = TRUE, config = list(encoding = "UTF-8"))
+df <- exportRecords(rcon,fields = fields)
+```
+
+```{r}
+fieldnames <- exportFieldNames(rcon)
+fields <- unique(field_names$original_field_name)
+```
 
 
 
+```{r}
 
-
-
-
+```
 
 
 
